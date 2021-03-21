@@ -14,4 +14,11 @@ addTest =
                     Amount.add (amount 1) (amount 1)
                         |> Expect.equal (amount 2)
             ]
+        , describe "amount 大きすぎる数字 + amount 大きすぎる数字は、"
+            [ test "和がInfになり、オーバーフロー通貨となる" <|
+                \_ ->
+                    Amount.add (amount <| 10 ^ 500) (amount <| 10 ^ 500)
+                        |> isOverflow
+                        |> Expect.true "オーバーフロー通過であることを期待します。"
+            ]
         ]
