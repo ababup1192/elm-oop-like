@@ -51,7 +51,7 @@ addTest =
                         |> minimum intComparator
                         |> Expect.equal (Just 1)
             ]
-        , describe "[Green, Yellow, Red]のうち、Green > Red > Yellow の順であれば、"
+        , describe "[Green, Yellow, Red]のうち、Green > Yellow > Red の順であれば、"
             [ test "Redが最小値となる" <|
                 \_ ->
                     [ Green, Yellow, Red ]
