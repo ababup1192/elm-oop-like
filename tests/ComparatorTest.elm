@@ -1,12 +1,12 @@
-module ComparableTest exposing (..)
+module ComparatorTest exposing (..)
 
-import Comparable exposing (..)
+import Comparator exposing (..)
 import Expect
 import Test exposing (..)
 
 
-intComparable : Comparable Int
-intComparable =
+intComparator : Comparator Int
+intComparator =
     compare
 
 
@@ -16,8 +16,8 @@ type Signal
     | Red
 
 
-signalComparable : Comparable Signal
-signalComparable s1 s2 =
+signalComparator : Comparator Signal
+signalComparator s1 s2 =
     case ( s1, s2 ) of
         ( Green, Yellow ) ->
             GT
@@ -48,14 +48,14 @@ addTest =
             [ test "最小値は1" <|
                 \_ ->
                     [ 4, 1, 3, 2 ]
-                        |> minimum intComparable
+                        |> minimum intComparator
                         |> Expect.equal (Just 1)
             ]
         , describe "[Green, Yellow, Red]のうち、Green > Red > Yellow の順であれば、"
             [ test "Redが最小値となる" <|
                 \_ ->
                     [ Green, Yellow, Red ]
-                        |> minimum signalComparable
+                        |> minimum signalComparator
                         |> Expect.equal (Just Red)
             ]
         ]
