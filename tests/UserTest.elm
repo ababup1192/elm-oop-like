@@ -6,11 +6,6 @@ import Test exposing (..)
 import User exposing (..)
 
 
-user1 : User
-user1 =
-    createUser "John" [ "Elm", "Elm", "Java", "Scala" ]
-
-
 hasSkillTest : Test
 hasSkillTest =
     describe "#hasSkillTest"
